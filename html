@@ -1,0 +1,251 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:black;
+overflow-x:hidden;
+color:white;
+text-align:center;
+}
+
+/* BACKGROUND */
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(0,0,0,0.7),
+rgba(0,0,0,0.8)),
+url('photo1.jpg');
+
+background-size:cover;
+background-position:center;
+filter:blur(4px);
+z-index:-1;
+}
+
+/* MAIN */
+
+.container{
+padding:30px;
+}
+
+h1{
+font-size:45px;
+color:#ff69b4;
+margin-top:20px;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 10px pink;
+}
+
+to{
+text-shadow:0 0 30px hotpink;
+}
+
+}
+
+.love-text{
+margin-top:20px;
+font-size:20px;
+line-height:35px;
+padding:15px;
+}
+
+/* PHOTO STYLE */
+
+.gallery{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:30px;
+margin-top:30px;
+}
+
+.gallery img{
+width:280px;
+border-radius:25px;
+border:4px solid pink;
+box-shadow:0 0 25px hotpink;
+transition:0.5s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* HEARTS */
+
+.heart{
+position:fixed;
+font-size:25px;
+animation:fall linear infinite;
+top:-10%;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-10vh);
+}
+
+100%{
+transform:translateY(110vh);
+}
+
+}
+
+/* BUTTON */
+
+button{
+margin-top:35px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:50px;
+background:hotpink;
+color:white;
+box-shadow:0 0 20px hotpink;
+}
+
+#message{
+display:none;
+font-size:28px;
+margin-top:30px;
+color:#ffb6c1;
+animation:fade 2s;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+h1{
+font-size:34px;
+}
+
+.gallery img{
+width:90%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+Happy Birthday My Love ❤️
+</h1>
+
+<div class="love-text">
+
+Tum meri life ka sabse beautiful part ho ❤️<br><br>
+
+Har smile tumhari meri duniya bright kar deti hai ✨<br><br>
+
+Aaj ka din sirf tumhare liye hai 🎂💖
+
+</div>
+
+<div class="gallery">
+
+<img src="photo1.jpg">
+
+<img src="photo2.jpg">
+
+<img src="photo3.jpg">
+
+</div>
+
+<button onclick="showMessage()">
+
+Click Here 🎁
+
+</button>
+
+<div id="message">
+
+I Love You Forever ❤️🌍
+
+</div>
+
+</div>
+
+<script>
+
+/* HEARTS */
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+}
+
+setInterval(createHeart,300);
+
+/* MESSAGE */
+
+function showMessage(){
+
+document.getElementById("message")
+.style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
